@@ -1,0 +1,22 @@
+﻿
+@{
+    Layout = null;
+}
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width-device-width"/>
+    <title>EndExam</title>
+
+    
+</head>
+<body>
+    <div>
+        <h1>Exam end!</h1><br />
+        <h2>Your Scored is @TempData["score"] / @TempData["quantityQuestion"]</h2>
+    </div>
+    <div class="list-group-item">
+        @Html.ActionLink("Logout", "Logout", new { @class = "list-group-item" })
+    </div>
+</body>
+</html>

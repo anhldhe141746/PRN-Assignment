@@ -1,0 +1,67 @@
+﻿@model Assignment.Models.TblCategroy
+@{
+    ViewBag.Title = "Addcategory";
+    Layout = "~/Views/Shared/Layout2.cshtml";
+}
+<h1 style="text-align:center;background-color:#808080;color:white">Add category</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.CatName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CatName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CatName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<hr />
+
+<div style="overflow:scroll">
+
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>Room Name</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+            @foreach (var item in ViewData["list"] as List<Assignment.Models.TblCategroy>)
+            {
+                <tr>
+
+                    <td>@item.CatId</td>
+
+                    <td>@item.CatName</td>
+                    <td>@item.CatEncyptedstring</td>
+
+                </tr>
+            }
+
+
+
+        </tbody>
+
+
+
+    </table>
+
+
+</div>
